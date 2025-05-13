@@ -1,0 +1,21 @@
+.word-row td {
+  padding: var(--spacing-unit);
+  vertical-align: middle;
+}
+
+.word-row.editing td {
+  padding-top: calc(var(--spacing-unit) * 1.5); /* Больше отступ для инпутов */
+  padding-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+.word-row-actions {
+  white-space: nowrap; /* Чтобы кнопки не переносились */
+  text-align: right;
+}
+
+.word-row-actions .btn {
+  margin-left: var(--spacing-unit);
+}
+.word-row-actions .btn:first-child {
+  margin-left: 0;
+}

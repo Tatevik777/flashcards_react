@@ -1,0 +1,159 @@
+:root {
+  /* Цвета */
+  --primary-color: #007bff; /* Синий для акцентов и кнопок */
+  --primary-hover-color: #0056b3;
+  --primary-active-color: #004085;
+  --secondary-color: #6c757d; /* Серый для второстепенных элементов */
+  --background-color: #f8f9fa; /* Светлый фон */
+  --surface-color: #ffffff;   /* Фон для карточек/секций */
+  --text-color: #212529;     /* Основной цвет текста */
+  --text-light-color: #ffffff; /* Светлый текст (на темном фоне) */
+  --border-color: #dee2e6;   /* Цвет границ */
+  --danger-color: #dc3545;    /* Для кнопок удаления */
+  --danger-hover-color: #c82333;
+  --danger-active-color: #bd2130;
+  --success-color: #28a745;   /* Для кнопок сохранения */
+  --success-hover-color: #218838;
+  --success-active-color: #1e7e34;
+
+  /* Шрифты */
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Размеры и отступы */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.25rem;
+  --font-size-sm: 0.875rem;
+  --spacing-unit: 8px;
+  --border-radius: 0.25rem; /* 4px */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-sans-serif);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Общие стили для кнопок с анимацией */
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5); /* 6px 12px */
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  border-radius: var(--border-radius);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+              border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+              transform 0.1s ease-out; /* Добавлена анимация для transform */
+  margin: calc(var(--spacing-unit) * 0.5); /* 4px */
+}
+
+.btn:hover {
+  text-decoration: none;
+  transform: translateY(-1px); /* Небольшой подъем при наведении */
+}
+
+.btn:focus, .btn.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Подсветка при фокусе */
+}
+
+.btn:active, .btn.active {
+  transform: translateY(1px); /* "Нажатие" кнопки */
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+
+.btn-primary {
+  color: var(--text-light-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.btn-primary:hover {
+  background-color: var(--primary-hover-color);
+  border-color: var(--primary-hover-color);
+}
+.btn-primary:active, .btn-primary.active {
+  background-color: var(--primary-active-color);
+  border-color: var(--primary-active-color);
+}
+
+.btn-danger {
+  color: var(--text-light-color);
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+.btn-danger:hover {
+  background-color: var(--danger-hover-color);
+  border-color: var(--danger-hover-color);
+}
+.btn-danger:active, .btn-danger.active {
+  background-color: var(--danger-active-color);
+  border-color: var(--danger-active-color);
+}
+
+.btn-success {
+  color: var(--text-light-color);
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+.btn-success:hover {
+  background-color: var(--success-hover-color);
+  border-color: var(--success-hover-color);
+}
+.btn-success:active, .btn-success.active {
+  background-color: var(--success-active-color);
+  border-color: var(--success-active-color);
+}
+
+.btn-secondary {
+  color: var(--text-light-color);
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+.btn-secondary:active, .btn-secondary.active {
+  background-color: #545b62;
+  border-color: #4e555b;
+}
+
+
+/* Стили для инпутов */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--surface-color);
+  background-clip: padding-box;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  color: var(--text-color);
+  background-color: var(--surface-color);
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
