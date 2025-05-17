@@ -4,12 +4,17 @@ import './WordRow.css';
 const WordRow = ({ word, isEditing, onEdit, onDelete, onSave, onCancel }) => {
   const [editedOriginal, setEditedOriginal] = useState(word.original);
   const [editedTranslation, setEditedTranslation] = useState(word.translation);
+   const [showTranslation, setShowTranslation] = useState(false); // Состояние для показа перевода
 
-  // Обновляем внутреннее состояние, если слово изменилось извне (например, отменили редактирование другого слова)
+  // Обновляем внутреннее состояние, если слово изменилось 
   useEffect(() => {
     setEditedOriginal(word.original);
     setEditedTranslation(word.translation);
   }, [word, isEditing]); // Перезапускаем, если isEditing тоже меняется
+
+  const handleShowTranslation = () => {
+    setShowTranslation(true); // Показываем перевод
+  };
 
   const handleSave = () => {
     onSave(word.id, { ...word, original: editedOriginal, translation: editedTranslation });

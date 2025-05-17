@@ -1,0 +1,96 @@
+/* Добавляем перспективу к контейнеру, если нет родителя с perspective */
+/* Или можно добавить на сам .card-container */
+ .card-list-container { /* или родительский контейнер */
+    perspective: 1000px; /* Определяет, как воспринимается 3D-преобразование */
+ }
+
+
+.card-container {
+  width: 300px; /* Ширина карточки */
+  height: 200px; /* Высота карточки */
+  position: relative; /* Нужен для абсолютного позиционирования card-face */
+  cursor: pointer; /* Курсор в виде указателя */
+  transform-style: preserve-3d; /* Дети элемента находятся в 3D пространстве */
+  transition: transform 0.6s ease-in-out; /* Плавная анимация переворота */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Тень карточки */
+  border-radius: var(--border-radius); /* Скругленные углы */
+  margin: 0 auto; /* Центрирование карточки */
+  background-color: transparent; /* Фон контейнера прозрачный */
+}
+
+/* Класс добавляется, когда карточка перевернута */
+.card-container.flipped {
+  transform: rotateY(180deg); /* Поворот на 180 градусов по оси Y */
+}
+
+.card {
+   width: 100%;
+   height: 100%;
+   position: absolute; /* Абсолютное позиционирование внутри card-container */
+   transform-style: preserve-3d; /* Дети card (card-face) тоже в 3D */
+}
+
+
+.card-face {
+  position: absolute; /* Абсолютное позиционирование внутри card */
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Скрывает обратную сторону элемента при повороте */
+  display: flex; /* Flexbox для центрирования содержимого */
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center; /* Центрирование по вертикали */
+  border-radius: var(--border-radius); /* Скругленные углы */
+  padding: var(--spacing-unit) * 2; /* Внутренние отступы */
+  text-align: center; /* Выравнивание текста по центру */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Легкая тень на сторонах */
+}
+
+.card-face-front {
+  background-color: var(--surface-color); /* Белый фон для лицевой стороны */
+  color: var(--text-color);
+  z-index: 2; /* Лицевая сторона поверх обратной */
+}
+
+.card-face-back {
+  background-color: var(--primary-color); /* Синий фон для обратной стороны */
+  color: var(--text-light-color);
+  transform: rotateY(180deg); /* Начальное положение обратной стороны (скрыто) */
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Чтобы контент занимал всю ширину */
+}
+
+.card-category {
+    font-size: var(--font-size-sm);
+    color: var(--secondary-color); /* Серый для категории на лицевой */
+    margin-bottom: var(--spacing-unit);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+ .card-face-back .card-category {
+    color: rgba(255, 255, 255, 0.8); /* Более светлый серый на синем фоне */
+ }
+
+
+.card-text {
+    font-size: var(--font-size-md); /* Средний размер шрифта для слова */
+    font-weight: bold;
+}
+
+.card.no-word {
+    background-color: var(--surface-color);
+    color: var(--secondary-color);
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: 100%;
+}

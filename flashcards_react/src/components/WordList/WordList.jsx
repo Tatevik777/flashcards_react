@@ -14,8 +14,6 @@ const WordList = ({ words, editingWordId, onEditWord, onDeleteWord, onSaveWord, 
           <tr>
             <th>Слово</th>
             <th>Перевод</th>
-            <th>Язык</th>
-            <th>Действия</th>
           </tr>
         </thead>
         <tbody>

@@ -1,21 +1,24 @@
 .app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Чтобы футер был внизу, даже если контента мало */
+  min-height: 100vh; /* Чтобы футер был внизу */
+  overflow-x: hidden; /* Предотвращаем горизонтальный скролл, если контент шире viewport */
 }
 
 .app-main-content {
   flex: 1; /* Основной контент занимает доступное пространство */
   padding: calc(var(--spacing-unit) * 2.5); /* 20px */
-  max-width: 960px; /* Ограничиваем максимальную ширину для лучшей читаемости */
-  margin: 0 auto; /* Центрируем основной контент */
-  width: 100%;
+  max-width: 960px; /* Ограничиваем максимальную ширину */
+  margin: 0 auto; /* Центрируем */
+  width: 100%; /* Занимает 100% доступной ширины (до max-width) */
+  display: flex; /* Используем flexbox для центрирования CardList */
+  flex-direction: column;
+  align-items: center;
 }
 
-.app-main-content h2 {
-  color: var(--primary-color);
-  margin-top: 0;
-  margin-bottom: calc(var(--spacing-unit) * 2);
-  border-bottom: 2px solid var(--primary-color);
-  padding-bottom: var(--spacing-unit);
+.no-words-message {
+    text-align: center;
+    font-size: var(--font-size-base);
+    color: var(--secondary-color);
+    margin-top: calc(var(--spacing-unit) * 4);
 }

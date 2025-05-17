@@ -1,0 +1,25 @@
+.card-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрируем элементы по горизонтали */
+  padding: calc(var(--spacing-unit) * 2);
+  gap: calc(var(--spacing-unit) * 3); /* Отступы между элементами (счетчик, карточка, навигация) */
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+ /* Добавляем перспективу здесь, чтобы она влияла на 3D transform внутри Card */
+.card-list-container {
+    perspective: 1000px;
+}
+
+
+.card-counter {
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+}
+
+.card-navigation {
+  display: flex;
+  gap: var(--spacing-unit); /* Отступ между кнопками навигации */
+  margin-top: var(--spacing-unit);
+}
