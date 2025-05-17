@@ -2,39 +2,63 @@ import React, { useState, useEffect } from 'react';
 import './Card.css';
 
 const Card = ({ word }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
+  const [showTranslation, setShowTranslation] = useState(false);
 
+  // Сбрасываем состояние показа перевода при смене слова
   useEffect(() => {
-    setIsFlipped(false); // Сброс состояния при смене слова
+    setShowTranslation(false);
   }, [word]);
 
-  const handleCardClick = () => {
-    setIsFlipped(!isFlipped); // Переключаем состояние
-  };
-
-  if (!word) { // Проверка слова
+  if (!word) {
     return (
       <div className="card-container">
-        <div className="card no-word">Слово не выбрано</div>
+        <div className="card no-word">
+          <div className="card-content">
+             <p>Слово не выбрано или список пуст.</p>
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className={`card-container ${isFlipped ? 'flipped' : ''}`} onClick={handleCardClick}>
+    <div className="card-container">
       <div className="card">
-        <div className="card-face card-face-front">
-          <div className="card-content">
-            <div className="card-category">{word.category}</div>
-            <div className="card-text">{word.english}</div>
-          </div>
-        </div>
+        <div className="card-content">
+          {/* Категория */}
+          <div className="card-category">{word.category}</div>
 
-        <div className="card-face card-face-back">
-          <div className="card-content">
-            <div className="card-category">{word.category}</div>
-            <div className="card-text">{word.russian}</div>
-          </div>
+          {/* Само слово (английское) */}
+          <div className="card-text">{word.english}</div>
+
+          {/* Условный рендеринг перевода */}
+          {showTranslation && (
+            <div className="card-translation">
+              {word.russian}
+            </div>
+          )}
+
+          {/* Кнопка "Показать перевод", отображается только если перевод скрыт */}
+          {!showTranslation && (
+            <button
+              onClick={() => setShowTranslation(true)}
+              className="btn btn-secondary card-button-toggle"
+              aria-label="Показать перевод"
+            >
+              Показать перевод
+            </button>
+          )}
+
+           {/* Кнопка "Скрыть перевод", отображается только если перевод показан */}
+          {showTranslation && (
+            <button
+              onClick={() => setShowTranslation(false)}
+              className="btn btn-secondary card-button-toggle"
+              aria-label="Скрыть перевод"
+            >
+              Скрыть перевод
+            </button>
+          )}
         </div>
       </div>
     </div>

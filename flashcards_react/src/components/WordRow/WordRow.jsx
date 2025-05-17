@@ -1,23 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import './WordRow.css';
 
-const WordRow = ({ word, isEditing, onEdit, onDelete, onSave, onCancel }) => {
-  const [editedOriginal, setEditedOriginal] = useState(word.original);
-  const [editedTranslation, setEditedTranslation] = useState(word.translation);
-   const [showTranslation, setShowTranslation] = useState(false); // Состояние для показа перевода
+const WordRow = ({
+  word,
+  isEditing,
+  onEdit,
+  onDelete,
+  onSave,
+  onCancel,
+}) => {
+  const [editedWord, setEditedWord] = useState({ ...word }); // Состояние для редактируемой версии слова
 
-  // Обновляем внутреннее состояние, если слово изменилось 
+  // Обновляем editedWord при изменении prop word ИЛИ при переходе в/из режима редактирования
+  // Это важно для сброса значений при отмене или при начале редактирования другого слова
   useEffect(() => {
-    setEditedOriginal(word.original);
-    setEditedTranslation(word.translation);
-  }, [word, isEditing]); // Перезапускаем, если isEditing тоже меняется
+    setEditedWord({ ...word });
+  }, [word, isEditing]); // Зависимости: prop word и prop isEditing
 
-  const handleShowTranslation = () => {
-    setShowTranslation(true); // Показываем перевод
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEditedWord((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSave = () => {
-    onSave(word.id, { ...word, original: editedOriginal, translation: editedTranslation });
+      onSave(word.id, editedWord); // Передаем id и измененное слово в родительский компонент
   };
 
   if (isEditing) {
@@ -26,25 +33,43 @@ const WordRow = ({ word, isEditing, onEdit, onDelete, onSave, onCancel }) => {
         <td>
           <input
             type="text"
-            className="form-control"
-            value={editedOriginal}
-            onChange={(e) => setEditedOriginal(e.target.value)}
-            aria-label="Редактировать слово"
+            name="english"
+            value={editedWord.english}
+            onChange={handleChange}
+            className="word-input"
           />
         </td>
         <td>
           <input
             type="text"
-            className="form-control"
-            value={editedTranslation}
-            onChange={(e) => setEditedTranslation(e.target.value)}
-            aria-label="Редактировать перевод"
+            name="russian"
+            value={editedWord.russian}
+            onChange={handleChange}
+            className="word-input"
           />
         </td>
-        <td>{word.lang}</td>
-        <td className="word-row-actions">
-          <button onClick={handleSave} className="btn btn-success">Сохранить</button>
-          <button onClick={onCancel} className="btn btn-secondary">Отмена</button>
+         <td>
+          <select
+              name="category" // Изменил на category, если это категория
+              value={editedWord.category}
+              onChange={handleChange}
+              className="word-input"
+          >
+              {/* Пример опций. В реальном приложении они могут приходить с сервера */}
+              <option value="Фрукты">Фрукты</option>
+              <option value="Транспорт">Транспорт</option>
+              <option value="Здания">Здания</option>
+              <option value="Предметы">Предметы</option>
+              <option value="Другое">Другое</option>
+          </select>
+        </td>
+        <td className="actions-cell">
+          <button onClick={handleSave} className="btn btn-success">
+            Сохранить
+          </button>
+          <button onClick={onCancel} className="btn btn-secondary">
+            Отмена
+          </button>
         </td>
       </tr>
     );
@@ -52,12 +77,16 @@ const WordRow = ({ word, isEditing, onEdit, onDelete, onSave, onCancel }) => {
 
   return (
     <tr className="word-row">
-      <td>{word.original}</td>
-      <td>{word.translation}</td>
-      <td>{word.lang}</td>
-      <td className="word-row-actions">
-        <button onClick={() => onEdit(word.id)} className="btn btn-primary">Редактировать</button>
-        <button onClick={() => onDelete(word.id)} className="btn btn-danger">Удалить</button>
+      <td>{word.english}</td>
+      <td>{word.russian}</td>
+      <td>{word.category}</td>
+      <td className="actions-cell">
+        <button onClick={() => onEdit(word.id)} className="btn btn-info">
+          Редактировать
+        </button>
+        <button onClick={() => onDelete(word.id)} className="btn btn-danger">
+          Удалить
+        </button>
       </td>
     </tr>
   );

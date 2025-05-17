@@ -1,24 +1,36 @@
-.app {
+@import './styles/variables.css';
+
+.App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Чтобы футер был внизу */
-  overflow-x: hidden; /* Предотвращаем горизонтальный скролл, если контент шире viewport */
+  min-height: 100vh; /* Минимальная высота, чтобы футер был внизу */
 }
 
 .app-main-content {
-  flex: 1; /* Основной контент занимает доступное пространство */
-  padding: calc(var(--spacing-unit) * 2.5); /* 20px */
-  max-width: 960px; /* Ограничиваем максимальную ширину */
-  margin: 0 auto; /* Центрируем */
-  width: 100%; /* Занимает 100% доступной ширины (до max-width) */
-  display: flex; /* Используем flexbox для центрирования CardList */
-  flex-direction: column;
-  align-items: center;
+  flex-grow: 1; /* Основной контент занимает все доступное место */
+  padding: var(--padding-large);
+  max-width: 1200px; /* Максимальная ширина контента */
+  margin: 0 auto; /* Центрирование блока содержимого */
+  width: 100%; /* Занимаем всю доступную ширину до max-width */
 }
 
-.no-words-message {
+.app-main-content h2 {
     text-align: center;
-    font-size: var(--font-size-base);
-    color: var(--secondary-color);
-    margin-top: calc(var(--spacing-unit) * 4);
+    margin-bottom: var(--margin-large);
+    color: var(--dark-color);
+}
+
+.card-section {
+    margin-bottom: var(--margin-large);
+}
+
+.wordlist-section {
+     margin-top: var(--margin-large);
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: var(--margin-large) 0;
 }

@@ -1,12 +1,14 @@
+@import '../../styles/variables.css';
+
 .app-header {
   background-color: var(--primary-color);
-  color: var(--text-light-color);
-  padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 2.5); /* 16px 20px */
+  color: white;
+  padding: var(--padding-medium);
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
 }
 
 .app-header h1 {
   margin: 0;
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-large);
 }

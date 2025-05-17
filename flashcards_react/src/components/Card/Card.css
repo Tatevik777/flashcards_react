@@ -1,96 +1,72 @@
-/* Добавляем перспективу к контейнеру, если нет родителя с perspective */
-/* Или можно добавить на сам .card-container */
- .card-list-container { /* или родительский контейнер */
-    perspective: 1000px; /* Определяет, как воспринимается 3D-преобразование */
- }
-
+@import '../../styles/variables.css';
 
 .card-container {
-  width: 300px; /* Ширина карточки */
-  height: 200px; /* Высота карточки */
-  position: relative; /* Нужен для абсолютного позиционирования card-face */
-  cursor: pointer; /* Курсор в виде указателя */
-  transform-style: preserve-3d; /* Дети элемента находятся в 3D пространстве */
-  transition: transform 0.6s ease-in-out; /* Плавная анимация переворота */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Тень карточки */
-  border-radius: var(--border-radius); /* Скругленные углы */
-  margin: 0 auto; /* Центрирование карточки */
-  background-color: transparent; /* Фон контейнера прозрачный */
-}
-
-/* Класс добавляется, когда карточка перевернута */
-.card-container.flipped {
-  transform: rotateY(180deg); /* Поворот на 180 градусов по оси Y */
+  width: 100%;
+  max-width: 300px; /* Максимальная ширина карточки */
+  height: 250px; /* Фиксированная высота для выравнивания */
+  perspective: 1000px; /* Для 3D эффекта, если  его добавить позже */
+  margin: var(--margin-medium) auto;
+  display: flex; /* Центрирование содержимого в контейнере */
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
-   width: 100%;
-   height: 100%;
-   position: absolute; /* Абсолютное позиционирование внутри card-container */
-   transform-style: preserve-3d; /* Дети card (card-face) тоже в 3D */
-}
-
-
-.card-face {
-  position: absolute; /* Абсолютное позиционирование внутри card */
   width: 100%;
   height: 100%;
-  backface-visibility: hidden; /* Скрывает обратную сторону элемента при повороте */
-  display: flex; /* Flexbox для центрирования содержимого */
-  justify-content: center; /* Центрирование по горизонтали */
-  align-items: center; /* Центрирование по вертикали */
-  border-radius: var(--border-radius); /* Скругленные углы */
-  padding: var(--spacing-unit) * 2; /* Внутренние отступы */
-  text-align: center; /* Выравнивание текста по центру */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Легкая тень на сторонах */
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Центрирование содержимого по вертикали */
+  align-items: center; /* Центрирование содержимого по горизонтали */
+  text-align: center;
+  padding: var(--padding-medium);
+  transition: box-shadow var(--transition-duration) var(--transition-timing-function); /* Анимация тени */
 }
 
-.card-face-front {
-  background-color: var(--surface-color); /* Белый фон для лицевой стороны */
-  color: var(--text-color);
-  z-index: 2; /* Лицевая сторона поверх обратной */
-}
-
-.card-face-back {
-  background-color: var(--primary-color); /* Синий фон для обратной стороны */
-  color: var(--text-light-color);
-  transform: rotateY(180deg); /* Начальное положение обратной стороны (скрыто) */
+.card:hover {
+    box-shadow: var(--box-shadow-hover);
 }
 
 .card-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%; /* Чтобы контент занимал всю ширину */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Занимаем всю доступную высоту внутри карточки */
+  width: 100%;
 }
 
 .card-category {
-    font-size: var(--font-size-sm);
-    color: var(--secondary-color); /* Серый для категории на лицевой */
-    margin-bottom: var(--spacing-unit);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  font-size: var(--font-size-small);
+  color: var(--secondary-color);
+  margin-bottom: var(--margin-small);
 }
-
- .card-face-back .card-category {
-    color: rgba(255, 255, 255, 0.8); /* Более светлый серый на синем фоне */
- }
-
 
 .card-text {
-    font-size: var(--font-size-md); /* Средний размер шрифта для слова */
-    font-weight: bold;
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--margin-medium);
+  word-break: break-word; /* Перенос длинных слов */
 }
 
+.card-translation {
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  margin-top: var(--margin-medium); /* Отступ сверху от слова */
+  word-break: break-word;
+}
+
+.card-button-toggle {
+    margin-top: var(--margin-medium); /* Отступ от слова или перевода */
+}
+
+/* Стили для случая, когда нет слова */
 .card.no-word {
-    background-color: var(--surface-color);
+    background-color: var(--light-color);
     color: var(--secondary-color);
-    font-style: italic;
-    display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: var(--border-radius);
-    width: 100%;
-    height: 100%;
 }

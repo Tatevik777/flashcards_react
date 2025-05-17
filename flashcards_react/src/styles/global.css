@@ -1,0 +1,121 @@
+@import './variables.css';
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.5;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: var(--margin-medium);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--margin-medium);
+}
+
+button {
+  display: inline-block;
+  font-weight: 400;
+  color: var(--dark-color);
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: var(--padding-small) var(--padding-medium);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  border-radius: var(--border-radius);
+  transition: color var(--transition-duration) var(--transition-timing-function),
+              background-color var(--transition-duration) var(--transition-timing-function),
+              border-color var(--transition-duration) var(--transition-timing-function),
+              box-shadow var(--transition-duration) var(--transition-timing-function);
+  cursor: pointer;
+}
+
+button:hover {
+  text-decoration: none;
+}
+
+button:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25); /* Применим фокус на основе primary, или можно сделать специфичные */
+}
+
+button:active {
+  transform: translateY(1px); /* Простая анимация нажатия */
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: darken(var(--primary-color), 10%); /* Простой затемняющий эффект, можно использовать calc или js для более точных значений */
+  border-color: darken(var(--primary-color), 12%);
+}
+.btn-primary:focus {
+   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* Пример box-shadow для primary */
+}
+.btn-primary:active {
+   background-color: darken(var(--primary-color), 15%);
+   border-color: darken(var(--primary-color), 20%);
+}
+
+
+.btn-success {
+  color: #fff;
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+/* Добавьте :hover, :focus, :active для других кнопок по аналогии */
+
+.btn-danger {
+    color: #fff;
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+.btn-info {
+    color: #fff;
+    background-color: var(--info-color);
+    border-color: var(--info-color);
+}
+
+/* Styles for inputs */
+input[type="text"], select {
+  display: block;
+  width: 100%;
+  padding: var(--padding-small);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-duration) var(--transition-timing-function),
+              box-shadow var(--transition-duration) var(--transition-timing-function);
+}
+
+input[type="text"]:focus, select:focus {
+  color: var(--text-color);
+  background-color: #fff;
+  border-color: lighten(var(--primary-color), 25%); /* Пример */
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25); /* Пример */
+}
+

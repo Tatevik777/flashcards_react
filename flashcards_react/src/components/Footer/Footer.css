@@ -1,12 +1,14 @@
+@import '../../styles/variables.css';
+
 .app-footer {
-  background-color: var(--secondary-color);
-  color: var(--text-light-color);
-  padding: var(--spacing-unit) calc(var(--spacing-unit) * 2.5); /* 8px 20px */
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: var(--padding-medium);
   text-align: center;
-  font-size: var(--font-size-sm);
-  margin-top: auto; /* Прижимает футер к низу, если контента мало */
+  margin-top: var(--margin-large);
 }
 
 .app-footer p {
   margin: 0;
+  font-size: var(--font-size-small);
 }

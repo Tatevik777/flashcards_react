@@ -4,7 +4,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer className="app-footer">
-      <p>&copy; {new Date().getFullYear()} Приложение для изучения слов.</p>
+      <p>© {new Date().getFullYear()} Приложение для изучения слов</p>
     </footer>
   );
 };

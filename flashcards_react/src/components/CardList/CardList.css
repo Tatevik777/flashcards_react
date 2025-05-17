@@ -1,25 +1,36 @@
+@import '../../styles/variables.css';
+
 .card-list-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Центрируем элементы по горизонтали */
-  padding: calc(var(--spacing-unit) * 2);
-  gap: calc(var(--spacing-unit) * 3); /* Отступы между элементами (счетчик, карточка, навигация) */
-  margin-top: calc(var(--spacing-unit) * 2);
+  align-items: center;
+  padding: var(--padding-large);
+  gap: var(--margin-large); /* Отступы между элементами */
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: var(--margin-large);
 }
-
- /* Добавляем перспективу здесь, чтобы она влияла на 3D transform внутри Card */
-.card-list-container {
-    perspective: 1000px;
-}
-
 
 .card-counter {
   font-size: var(--font-size-base);
-  color: var(--text-color);
+  color: var(--dark-color);
 }
 
 .card-navigation {
   display: flex;
-  gap: var(--spacing-unit); /* Отступ между кнопками навигации */
-  margin-top: var(--spacing-unit);
+  gap: var(--margin-medium); /* Отступ между кнопками навигации */
+  width: 100%; /* Чтобы кнопки занимали всю ширину контейнера навигации */
+  justify-content: space-around; /* Распределение пространства между кнопками */
+}
+
+.card-navigation button {
+    flex-grow: 1; /* Кнопки занимают равное пространство */
+    max-width: 120px; /* Ограничение ширины кнопок */
+}
+
+.no-words-message {
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: var(--font-size-base);
 }
