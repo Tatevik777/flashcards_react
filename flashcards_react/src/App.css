@@ -3,15 +3,15 @@
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Минимальная высота, чтобы футер был внизу */
+  min-height: 100vh;
 }
 
 .app-main-content {
-  flex-grow: 1; /* Основной контент занимает все доступное место */
+  flex-grow: 1; 
   padding: var(--padding-large);
-  max-width: 1200px; /* Максимальная ширина контента */
-  margin: 0 auto; /* Центрирование блока содержимого */
-  width: 100%; /* Занимаем всю доступную ширину до max-width */
+  max-width: 1200px;
+  margin: 0 auto; 
+  width: 100%; 
 }
 
 .app-main-content h2 {

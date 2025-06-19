@@ -8,10 +8,8 @@ const WordList = ({
   onEditWord,
   onDeleteWord,
   onSaveWord,
-  onCancelEdit, // Функция отмены редактирования в родителе
+  onCancelEdit,
 }) => {
-
-  // Проверка, если массив слов пуст
   if (!words || words.length === 0) {
     return (
       <div className="word-list-container">
@@ -28,7 +26,7 @@ const WordList = ({
           <tr>
             <th>Английский</th>
             <th>Русский</th>
-            <th>Категория</th> {/* Или "Язык", в зависимости от вашей структуры */}
+            <th>Категория</th>
             <th>Действия</th>
           </tr>
         </thead>
@@ -37,11 +35,11 @@ const WordList = ({
             <WordRow
               key={word.id}
               word={word}
-              isEditing={editingWordId === word.id} // Определяем, редактируется ли текущая строка
-              onEdit={onEditWord} // Передаем обработчик для начала редактирования
-              onDelete={onDeleteWord} // Передаем обработчик удаления
-              onSave={onSaveWord} // Передаем обработчик сохранения
-              onCancel={onCancelEdit} // Передаем обработчик отмены
+              isEditing={editingWordId === word.id}
+              onEdit={onEditWord}
+              onDelete={onDeleteWord}
+              onSave={onSaveWord}
+              onCancel={onCancelEdit}
             />
           ))}
         </tbody>

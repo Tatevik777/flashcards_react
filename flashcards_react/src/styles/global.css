@@ -118,4 +118,3 @@ input[type="text"]:focus, select:focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25); /* Пример */
 }
-
