@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */ // Необходимо для отключения проверки prop-types в этом файле
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';

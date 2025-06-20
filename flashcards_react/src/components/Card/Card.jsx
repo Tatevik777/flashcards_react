@@ -1,66 +1,61 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Card.css';
 
-const Card = ({ word }) => {
+const Card = ({ word, onShowTranslation }) => {
   const [showTranslation, setShowTranslation] = useState(false);
+  const hasShownRef = useRef(false); // чтобы не вызывать onShowTranslation дважды
+  const showButtonRef = useRef(null); // для фокуса
 
-  // Сбрасываем состояние показа перевода при смене слова
+  // ❗ Сброс состояния при смене слова
   useEffect(() => {
     setShowTranslation(false);
+    hasShownRef.current = false;
   }, [word]);
 
-  if (!word) {
-    return (
-      <div className="card-container">
-        <div className="card no-word">
-          <div className="card-content">
-             <p>Слово не выбрано или список пуст.</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // ❗ Фокус на кнопке "Показать перевод"
+  useEffect(() => {
+    if (showButtonRef.current && !showTranslation) {
+      showButtonRef.current.focus();
+    }
+  }, [word, showTranslation]);
+
+  const handleShow = () => {
+    setShowTranslation(true);
+    if (!hasShownRef.current) {
+      onShowTranslation?.(); // вызываем только один раз
+      hasShownRef.current = true;
+    }
+  };
+
+  if (!word) return null;
 
   return (
-    <div className="card-container">
-      <div className="card">
-        <div className="card-content">
-          {/* Категория */}
-          <div className="card-category">{word.category}</div>
+    <div className="card">
+      <div className="card-category">{word.category}</div>
+      <div className="card-text">{word.english}</div>
 
-          {/* Само слово (английское) */}
-          <div className="card-text">{word.english}</div>
+      {showTranslation && (
+        <div className="card-translation">{word.russian}</div>
+      )}
 
-          {/* Условный рендеринг перевода */}
-          {showTranslation && (
-            <div className="card-translation">
-              {word.russian}
-            </div>
-          )}
+      {!showTranslation && (
+        <button
+          ref={showButtonRef}
+          onClick={handleShow}
+          className="btn"
+        >
+          Показать перевод
+        </button>
+      )}
 
-          {/* Кнопка "Показать перевод", отображается только если перевод скрыт */}
-          {!showTranslation && (
-            <button
-              onClick={() => setShowTranslation(true)}
-              className="btn btn-secondary card-button-toggle"
-              aria-label="Показать перевод"
-            >
-              Показать перевод
-            </button>
-          )}
-
-           {/* Кнопка "Скрыть перевод", отображается только если перевод показан */}
-          {showTranslation && (
-            <button
-              onClick={() => setShowTranslation(false)}
-              className="btn btn-secondary card-button-toggle"
-              aria-label="Скрыть перевод"
-            >
-              Скрыть перевод
-            </button>
-          )}
-        </div>
-      </div>
+      {showTranslation && (
+        <button
+          onClick={() => setShowTranslation(false)}
+          className="btn"
+        >
+          Скрыть перевод
+        </button>
+      )}
     </div>
   );
 };

@@ -34,3 +34,21 @@
     color: var(--secondary-color);
     font-size: var(--font-size-base);
 }
+
+.card-navigation {
+  display: flex;
+  gap: var(--margin-medium); /* Отступ между кнопками навигации */
+  width: 100%; /* Чтобы кнопки занимали всю ширину контейнера навигации */
+  justify-content: space-around; /* Распределение пространства между кнопками */
+}
+
+.card-navigation button {
+    flex-grow: 1; /* Кнопки занимают равное пространство */
+    max-width: 120px; /* Ограничение ширины кнопок */
+}
+
+.no-words-message {
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: var(--font-size-base);
+}

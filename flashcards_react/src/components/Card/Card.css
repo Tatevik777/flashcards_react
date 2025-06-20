@@ -2,11 +2,11 @@
 
 .card-container {
   width: 100%;
-  max-width: 300px; /* Максимальная ширина карточки */
-  height: 250px; /* Фиксированная высота для выравнивания */
-  perspective: 1000px; /* Для 3D эффекта, если  его добавить позже */
+  max-width: 300px; 
+  height: 250px; 
+  perspective: 1000px; 
   margin: var(--margin-medium) auto;
-  display: flex; /* Центрирование содержимого в контейнере */
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -19,8 +19,8 @@
   box-shadow: var(--box-shadow);
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Центрирование содержимого по вертикали */
-  align-items: center; /* Центрирование содержимого по горизонтали */
+  justify-content: center; 
+  align-items: center; 
   text-align: center;
   padding: var(--padding-medium);
   transition: box-shadow var(--transition-duration) var(--transition-timing-function); /* Анимация тени */
