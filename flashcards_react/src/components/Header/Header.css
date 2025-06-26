@@ -1,14 +1,35 @@
 @import '../../styles/variables.css';
 
 .app-header {
+  position: relative;              
   background-color: var(--primary-color);
   color: white;
   padding: var(--padding-medium);
-  text-align: center;
   box-shadow: var(--box-shadow);
+  height: 60px;                   
+  display: flex;
+  align-items: center;
+  justify-content: center;        }
+
+.app-header a {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
 }
 
-.app-header h1 {
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
+
+.app-title {
   margin: 0;
   font-size: var(--font-size-large);
-}
+  text-align: center;
+  width: 100%;                 
+  pointer-events: none; 
+}        

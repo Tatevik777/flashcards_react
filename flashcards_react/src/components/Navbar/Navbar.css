@@ -2,9 +2,9 @@
 
 .navbar {
   display: flex;
-  justify-content: space-between; /* Размещаем логотип слева и ссылки справа */
-  align-items: center; /* Вертикальное выравнивание */
-  background-color: var(--primary-color); /* Цвет фона */
+  justify-content: space-between; 
+  align-items: center; 
+  background-color: var(--primary-color); 
   padding: var(--padding-medium);
   position: fixed; 
   top: 0; 
@@ -32,10 +32,10 @@
 }
 
 .navbar-links a:hover {
-  color: var(--light-color); /* Цвет текста при наведении */
+  color: var(--light-color); 
 }
 
 .navbar-links a:focus {
-  outline: none; /* Убираем стандартное выделение при фокусе */
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); /* Обводка для фокуса */
+  outline: none; 
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); 
 }

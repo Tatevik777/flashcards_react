@@ -20,7 +20,6 @@ const CardList = ({ words }) => {
     }
   };
 
-  // 🔥 Увеличиваем счетчик при первом показе перевода
   const handleShowTranslation = () => {
     setStudiedCount(count => count + 1);
   };

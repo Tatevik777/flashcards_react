@@ -3,16 +3,16 @@ import './Card.css';
 
 const Card = ({ word, onShowTranslation }) => {
   const [showTranslation, setShowTranslation] = useState(false);
-  const hasShownRef = useRef(false); // чтобы не вызывать onShowTranslation дважды
-  const showButtonRef = useRef(null); // для фокуса
+  const hasShownRef = useRef(false); 
+  const showButtonRef = useRef(null);
 
-  // ❗ Сброс состояния при смене слова
+  
   useEffect(() => {
     setShowTranslation(false);
     hasShownRef.current = false;
   }, [word]);
 
-  // ❗ Фокус на кнопке "Показать перевод"
+ 
   useEffect(() => {
     if (showButtonRef.current && !showTranslation) {
       showButtonRef.current.focus();
@@ -22,7 +22,7 @@ const Card = ({ word, onShowTranslation }) => {
   const handleShow = () => {
     setShowTranslation(true);
     if (!hasShownRef.current) {
-      onShowTranslation?.(); // вызываем только один раз
+      onShowTranslation?.(); 
       hasShownRef.current = true;
     }
   };

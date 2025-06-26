@@ -9,14 +9,11 @@ const WordRow = ({
   onSave,
   onCancel,
 }) => {
-  const [editedWord, setEditedWord] = useState({ ...word }); // Состояние для редактируемой версии слова
-
-  // Обновляем editedWord при изменении prop word ИЛИ при переходе в/из режима редактирования
-  // Это важно для сброса значений при отмене или при начале редактирования другого слова
+  const [editedWord, setEditedWord] = useState({ ...word }); 
+ 
   useEffect(() => {
     setEditedWord({ ...word });
-  }, [word, isEditing]); // Зависимости: prop word и prop isEditing
-
+  }, [word, isEditing]); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,7 +21,7 @@ const WordRow = ({
   };
 
   const handleSave = () => {
-      onSave(word.id, editedWord); // Передаем id и измененное слово в родительский компонент
+      onSave(word.id, editedWord); 
   };
 
   if (isEditing) {
@@ -50,12 +47,11 @@ const WordRow = ({
         </td>
          <td>
           <select
-              name="category" // Изменил на category, если это категория
+              name="category" 
               value={editedWord.category}
               onChange={handleChange}
               className="word-input"
           >
-              {/* Пример опций. В реальном приложении они могут приходить с сервера */}
               <option value="Фрукты">Фрукты</option>
               <option value="Транспорт">Транспорт</option>
               <option value="Здания">Здания</option>

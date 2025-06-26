@@ -1,42 +1,41 @@
 :root {
-  /* Colors */
-  --primary-color: #007bff; /* Синий */
-  --secondary-color: #6c757d; /* Серый */
-  --success-color: #28a745; /* Зеленый */
-  --danger-color: #dc3545; /* Красный */
-  --warning-color: #ffc107; /* Желтый */
-  --info-color: #17a2b8; /* Бирюзовый */
-  --light-color: #f8f9fa; /* Светло-серый */
-  --dark-color: #343a40; /* Темно-серый */
-  --background-color: #e9ecef; /* Фон приложения */
-  --card-background: #ffffff; /* Фон карточки */
-  --text-color: #212529; /* Основной текст */
-  --border-color: #ced4da; /* Цвет границ */
+  
+  --primary-color: #007bff; 
+  --secondary-color: #6c757d; 
+  --success-color: #28a745; 
+  --danger-color: #dc3545;
+  --warning-color: #ffc107; 
+  --info-color: #17a2b8; 
+  --light-color: #f8f9fa; 
+  --dark-color: #343a40; 
+  --background-color: #e9ecef; 
+  --card-background: #ffffff; 
+  --text-color: #212529; 
+  --border-color: #ced4da; 
 
-  /* Spacing */
-  --spacing-unit: 8px; /* Базовый отступ */
-  --padding-small: calc(var(--spacing-unit) * 1); /* 8px */
-  --padding-medium: calc(var(--spacing-unit) * 2); /* 16px */
-  --padding-large: calc(var(--spacing-unit) * 3); /* 24px */
+  
+  --spacing-unit: 8px; 
+  --padding-small: calc(var(--spacing-unit) * 1); 
+  --padding-medium: calc(var(--spacing-unit) * 2); 
+  --padding-large: calc(var(--spacing-unit) * 3); 
   --margin-small: calc(var(--spacing-unit) * 1);
   --margin-medium: calc(var(--spacing-unit) * 2);
   --margin-large: calc(var(--spacing-unit) * 3);
 
-  /* Fonts */
+  
   --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-size-base: 1rem; /* 16px */
-  --font-size-large: 1.25rem; /* 20px */
-  --font-size-small: 0.875rem; /* 14px */
+  --font-size-base: 1rem; 
+  --font-size-large: 1.25rem; 
+  --font-size-small: 0.875rem; 
   --font-weight-bold: 700;
 
-  /* Border Radius */
-  --border-radius: 0.25rem; /* 4px */
+ 
+  --border-radius: 0.25rem; 
 
-  /* Transitions */
+
   --transition-duration: 0.3s;
   --transition-timing-function: ease-in-out;
 
-  /* Box Shadow */
   --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   --box-shadow-hover: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
 }

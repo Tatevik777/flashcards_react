@@ -1,0 +1,23 @@
+
+.add-word-form {
+  display: flex;
+  gap: var(--margin-small);
+  flex-wrap: wrap;
+  margin-bottom: var(--margin-large);
+  align-self: center;
+}
+
+.add-word-form input {
+  padding: var(--padding-small);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.add-word-form .input-error {
+  border-color: var(--danger-color);
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.3);
+}
+
+.add-word-form button {
+  align-self: flex-end;
+}

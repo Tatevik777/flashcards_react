@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   padding: var(--padding-large);
-  gap: var(--margin-large); /* Отступы между элементами */
+  gap: var(--margin-large); 
   background-color: var(--light-color);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
@@ -19,14 +19,14 @@
 
 .card-navigation {
   display: flex;
-  gap: var(--margin-medium); /* Отступ между кнопками навигации */
-  width: 100%; /* Чтобы кнопки занимали всю ширину контейнера навигации */
-  justify-content: space-around; /* Распределение пространства между кнопками */
+  gap: var(--margin-medium); 
+  width: 100%; 
+  justify-content: space-around; 
 }
 
 .card-navigation button {
-    flex-grow: 1; /* Кнопки занимают равное пространство */
-    max-width: 120px; /* Ограничение ширины кнопок */
+    flex-grow: 1; 
+    max-width: 120px; 
 }
 
 .no-words-message {
@@ -37,14 +37,14 @@
 
 .card-navigation {
   display: flex;
-  gap: var(--margin-medium); /* Отступ между кнопками навигации */
-  width: 100%; /* Чтобы кнопки занимали всю ширину контейнера навигации */
-  justify-content: space-around; /* Распределение пространства между кнопками */
+  gap: var(--margin-medium); 
+  width: 100%; 
+  justify-content: space-around; 
 }
 
 .card-navigation button {
-    flex-grow: 1; /* Кнопки занимают равное пространство */
-    max-width: 120px; /* Ограничение ширины кнопок */
+    flex-grow: 1; 
+    max-width: 120px; 
 }
 
 .no-words-message {

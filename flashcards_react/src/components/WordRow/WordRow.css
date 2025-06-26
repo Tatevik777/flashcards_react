@@ -3,29 +3,27 @@
 .word-row td {
   padding: var(--padding-small);
   border: 1px solid var(--border-color);
-  vertical-align: middle; /* Выравнивание содержимого ячеек по вертикали */
+  vertical-align: middle; 
 }
 
 .word-row.editing td {
-    background-color: var(--light-color); /* Фон для редактируемой строки */
-}
+    background-color: var(--light-color); }
 
 .word-input {
-    padding: calc(var(--padding-small) / 2) var(--padding-small); /* Немного меньше паддинг для инпутов в таблице */
+    padding: calc(var(--padding-small) / 2) var(--padding-small); 
 }
 
 .actions-cell {
-    white-space: nowrap; /* Предотвращает перенос кнопок на новую строку */
+    white-space: nowrap; 
     text-align: center;
 }
 
 .actions-cell button {
-    margin: 0 var(--margin-small); /* Отступ между кнопками */
-    padding: calc(var(--padding-small) / 2) var(--padding-small); /* Меньше паддинг для кнопок в таблице */
+    margin: 0 var(--margin-small); 
+    padding: calc(var(--padding-small) / 2) var(--padding-small); 
     font-size: var(--font-size-small);
 }
 
-/* Убираем внешний отступ у первой кнопки и внутренний у последней в ячейке */
 .actions-cell button:first-child {
     margin-left: 0;
 }

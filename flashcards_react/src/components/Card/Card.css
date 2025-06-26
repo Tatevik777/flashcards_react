@@ -23,7 +23,7 @@
   align-items: center; 
   text-align: center;
   padding: var(--padding-medium);
-  transition: box-shadow var(--transition-duration) var(--transition-timing-function); /* Анимация тени */
+  transition: box-shadow var(--transition-duration) var(--transition-timing-function); 
 }
 
 .card:hover {
@@ -35,7 +35,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%; /* Занимаем всю доступную высоту внутри карточки */
+  height: 100%; 
   width: 100%;
 }
 
@@ -49,21 +49,21 @@
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--margin-medium);
-  word-break: break-word; /* Перенос длинных слов */
+  word-break: break-word; 
 }
 
 .card-translation {
   font-size: var(--font-size-base);
   color: var(--text-color);
-  margin-top: var(--margin-medium); /* Отступ сверху от слова */
+  margin-top: var(--margin-medium); 
   word-break: break-word;
 }
 
 .card-button-toggle {
-    margin-top: var(--margin-medium); /* Отступ от слова или перевода */
-}
+    margin-top: var(--margin-medium); 
+  }
 
-/* Стили для случая, когда нет слова */
+
 .card.no-word {
     background-color: var(--light-color);
     color: var(--secondary-color);

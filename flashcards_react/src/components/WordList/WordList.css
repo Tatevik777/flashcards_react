@@ -6,9 +6,9 @@
   background-color: var(--card-background);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
-  width: 95%; /* Или другая максимальная ширина */
+  width: 95%; 
   max-width: 800px;
-  overflow-x: auto; /* Скролл для маленьких экранов */
+  overflow-x: auto;
 }
 
 .word-list-container h2 {
@@ -19,7 +19,7 @@
 
 .word-list-table {
   width: 100%;
-  border-collapse: collapse; /* Убираем двойные границы */
+  border-collapse: collapse; 
   margin-top: var(--margin-medium);
 }
 
@@ -29,7 +29,7 @@
   border: 1px solid var(--border-color);
   background-color: var(--light-color);
   font-weight: var(--font-weight-bold);
-  white-space: nowrap; /* Предотвращает перенос заголовков */
+  white-space: nowrap; 
 }
 
 .word-list-empty {
